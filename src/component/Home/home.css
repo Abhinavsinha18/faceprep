@@ -14,36 +14,55 @@ background-size: cover;
 
 }
 .main-div>div{
-    width: 320px;
-    height: 480px;
+    width: 40%;
+    height: 80vh;
+    overflow-y: scroll;
     background-color: rgb(93, 2, 2);
     border-radius: 15px;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 50px;
 }
-.userDiv:nth-child(even){
+
+.userDiv:nth-child(odd){
     display: flex;
-    background-color: whitesmoke;
+    background-color: white;
     border-radius: 5px;
+    align-items: center;
+    /* gap: 50px; */
+    
     justify-content: space-between;
     padding: 5px;
    
 }
-.userDiv:nth-child(odd){
+.para:nth-child(odd){
+    padding: 5px;
+    border-right: 2px solid rgb(151, 15, 15) ;
+}
+.para:nth-child(even){
+    padding: 5px;
+    border-left: 2px solid rgb(151, 15, 15) ;
+}
+.userDiv:nth-child(even){
+    text-align: right;
     display: flex;
     background-color: whitesmoke;
     border-radius: 5px;
+    align-items: center;
     flex-direction: row-reverse;
+    /* gap: 50px; */
     justify-content: space-between;
     padding: 5px;
  
 }
 .userDiv>div:first-child{
-    
+    padding: 10px;
     width: 20%;
 }
 .userDiv>div:last-child{
-   
+   padding: 10px;
     width: 75%;
-    text-align: left;
+    
+}
+.userDiv>div>img{
+    border-radius: 50%;
 }

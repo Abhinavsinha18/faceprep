@@ -10,7 +10,7 @@ const Home = ({ setFlag }) => {
 
   const fetchData = () => {
     try {
-      fetch("https://randomuser.me/api/?results=10")
+      fetch("https://randomuser.me/api/?results=20")
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
@@ -32,6 +32,10 @@ const Home = ({ setFlag }) => {
           {state.map((e, i) => {
             return (
               <div className="userDiv">
+                <span className="para">
+
+                    <p>{i+1}</p>
+                </span>
                 <div>
                   <img src={e.picture.thumbnail} alt="" />
                 </div>
