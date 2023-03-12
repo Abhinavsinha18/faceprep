@@ -16,8 +16,34 @@ background-size: cover;
 .main-div>div{
     width: 320px;
     height: 480px;
-    background-color: whitesmoke;
+    background-color: rgb(93, 2, 2);
     border-radius: 15px;
     margin: auto;
     margin-top: 100px;
+}
+.userDiv:nth-child(even){
+    display: flex;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    justify-content: space-between;
+    padding: 5px;
+   
+}
+.userDiv:nth-child(odd){
+    display: flex;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 5px;
+ 
+}
+.userDiv>div:first-child{
+    
+    width: 20%;
+}
+.userDiv>div:last-child{
+   
+    width: 75%;
+    text-align: left;
 }
