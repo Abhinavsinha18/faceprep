@@ -1,23 +1,37 @@
 import logo from './logo.svg';
 import './App.css';
+import 'react-toastify/dist/ReactToastify.css';
+import Login from './component/Auth/Login';
+import {Routes,Route ,useNavigate} from "react-router-dom"
+import { useEffect, useState } from 'react';
+import Home from './component/Home/Home';
+import Welcome from './component/Welcome/Welcome';
+
+
 
 function App() {
+
+const [flag,setFlag ] = useState(false);
+let Navigate = useNavigate();
+
+useEffect(()=>{
+  if(localStorage.length==0){
+    localStorage.setItem("flag",false);
+  }
+},[])
+
+let ls  = localStorage.getItem("flag");
+if(ls===true){
+  setFlag(true);
+}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+<Routes>
+  <Route path='/home'  element={flag===true  ? <Home setFlag ={setFlag}/> :<Login  setFlag = {setFlag}/> }/> 
+  <Route path='/'  element={<Welcome/> }/> 
+</Routes>
     </div>
   );
 }
