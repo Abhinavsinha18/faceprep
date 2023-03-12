@@ -16,12 +16,10 @@ const Login = ({setFlag}) => {
    
     e.preventDefault();
     if (email.current.value === "foo" && pass.current.value === "bar") {
+        toast.success("success Login");
         setTimeout(()=>{
-            navigate('/home')
-        },5000)
-        setFlag(true)
-        localStorage.setItem("flag",true)
-      toast.success("success Login");
+            setFlag(true)
+        },2000)
       console.log("success Login");
     } else {
       toast.error("wrong");

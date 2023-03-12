@@ -16,7 +16,7 @@
     justify-content: center;
   }
   
-  button {
+  .button-arounder {
     background: white;
     border: solid 2px black;
     /* padding: 1em 2.125em; */
