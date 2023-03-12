@@ -81,7 +81,7 @@ background-color: rgb(44, 44, 44);
 
 @media (max-width:730px){
     .main-div>div{
-        width: 80%;
+        width: 100%;
       
         overflow-y: scroll;
         background-color: rgb(93, 2, 2);

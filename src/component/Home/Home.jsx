@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./home.css";
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
+import Display from "./Display";
+import SkeletonCard from "../SkeletonCard/SkeletonCard";
+
 
 const Home = ({ setFlag }) => {
   const [state, setState] = useState([]);
@@ -61,40 +62,12 @@ setTimeout(() => {
    </div>
           {load ? state.map((e, i) => {
             return (
-              <div className="userDiv">
-                <span className="para">
-
-                    <p>{i+1}</p>
-                </span>
-                <div>
-                  <img src={e.picture.thumbnail} alt="" />
-                </div>
-                <div>
-                  <p>
-                    {" "}
-                    {e.name.title + " " + e.name.first + " " + e.name.last}
-                  </p>
-                </div>
-              </div>
+              <Display e = {e} i={i}/>
   )
   // ____________________________________________________________________________________________
           }) : state.map((e, i) => {
             return (
-              <div className="userDiv">
-                <span className="para">
-
-                    <p><Skeleton/></p>
-                </span>
-                <div>
-                  <Skeleton circle={true} width={10}/>
-                </div>
-                <div>
-                  <p>
-                    {" "}
-                    {<Skeleton/>}
-                  </p>
-                </div>
-              </div>
+          <SkeletonCard/>
             )  
             })}
         </div>
