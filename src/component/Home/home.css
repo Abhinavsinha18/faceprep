@@ -76,3 +76,17 @@ background-color: rgb(44, 44, 44);
 .userDiv>div>img{
     border-radius: 50%;
 }
+
+
+
+@media (max-width:730px){
+    .main-div>div{
+        width: 80%;
+      
+        overflow-y: scroll;
+        background-color: rgb(93, 2, 2);
+        border-radius: 15px;
+        margin: auto;
+        /* margin-top: 50px; */
+    }
+  }

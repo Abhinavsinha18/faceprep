@@ -5,13 +5,16 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 const Home = ({ setFlag }) => {
   const [state, setState] = useState([]);
-  const [page, setPage] = useState(20);
+  const [page, setPage] = useState(15);
   const [load,setLoad] = useState(false);
   
 
 
   useEffect(() => {
     fetchData();
+    setTimeout(()=>{
+    setLoad(true)
+    },1000)
   }, [page]);
 
   const fetchData = () => {
@@ -28,14 +31,19 @@ const Home = ({ setFlag }) => {
   };
 
 window.onscroll = function(){
-  if(window.innerHeight + document.documentElement.scrollTop>=document.documentElement.scrollHeight){
+  if(window.innerHeight + document.documentElement.scrollTop+5>=document.documentElement.scrollHeight){
     scrolltoend()
   }
 }
 
 
 const scrolltoend = () =>{
-  setPage(page+15);
+setLoad(false);
+
+setPage(page+15);
+setTimeout(() => {
+  setLoad(true)
+}, 1000);  
  
 }
 
@@ -51,7 +59,7 @@ const scrolltoend = () =>{
       setFlag(false)
     }}>Logout</button>
    </div>
-          {state.map((e, i) => {
+          {load ? state.map((e, i) => {
             return (
               <div className="userDiv">
                 <span className="para">
@@ -68,12 +76,27 @@ const scrolltoend = () =>{
                   </p>
                 </div>
               </div>
+  )
   // ____________________________________________________________________________________________
+          }) : state.map((e, i) => {
+            return (
+              <div className="userDiv">
+                <span className="para">
 
-  
-
-            );
-          })}
+                    <p><Skeleton/></p>
+                </span>
+                <div>
+                  <Skeleton circle={true} width={10}/>
+                </div>
+                <div>
+                  <p>
+                    {" "}
+                    {<Skeleton/>}
+                  </p>
+                </div>
+              </div>
+            )  
+            })}
         </div>
       </div>
     </div>

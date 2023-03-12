@@ -11,7 +11,7 @@ import Welcome from './component/Welcome/Welcome';
 
 function App() {
 
-const [flag,setFlag ] = useState(true);
+const [flag,setFlag ] = useState(false);
 
 
 
