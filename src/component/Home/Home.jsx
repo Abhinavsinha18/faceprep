@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from "react";
 import "./home.css";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const Home = ({ setFlag }) => {
   const [state, setState] = useState([]);
+  const [page, setPage] = useState(20);
+  const [load,setLoad] = useState(false);
+  
+
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [page]);
 
   const fetchData = () => {
     try {
-      fetch("https://randomuser.me/api/?results=20")
+      fetch(`https://randomuser.me/api/?results=${page}`)
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
@@ -21,14 +27,30 @@ const Home = ({ setFlag }) => {
     }
   };
 
+window.onscroll = function(){
+  if(window.innerHeight + document.documentElement.scrollTop>=document.documentElement.scrollHeight){
+    scrolltoend()
+  }
+}
+
+
+const scrolltoend = () =>{
+  setPage(page+15);
+ 
+}
+
+
   return (
     <div className="hmdiv">
-      <button onClick={() => setFlag(false)} className="btnhm">
-        Logout
-      </button>
-
+   
       <div className="main-div">
         <div className="snd-div">
+   <div className="logoutbtn">
+    <img src="https://webypost.com/posts/1548933885802.jpg" alt=""  width={"100px"}/>
+    <button onClick={()=>{
+      setFlag(false)
+    }}>Logout</button>
+   </div>
           {state.map((e, i) => {
             return (
               <div className="userDiv">
@@ -46,6 +68,10 @@ const Home = ({ setFlag }) => {
                   </p>
                 </div>
               </div>
+  // ____________________________________________________________________________________________
+
+  
+
             );
           })}
         </div>

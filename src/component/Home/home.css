@@ -1,8 +1,18 @@
 .hmdiv{
-        background-image: url("https://webypost.com/posts/1548933885802.jpg");
-height: 100vh;
-background-position: center;
-background-size: cover;
+background-color: rgb(44, 44, 44);
+}
+.logoutbtn{
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    align-items: center;
+    background-color: brown;
+}
+.logoutbtn>img{
+    border-radius: 50px;
+}
+.logoutbtn>button{
+    width: 30%;
 }
 .btnhm{
     width: 20%;
@@ -15,15 +25,15 @@ background-size: cover;
 }
 .main-div>div{
     width: 40%;
-    height: 80vh;
+    /* height: 80vh; */
     overflow-y: scroll;
     background-color: rgb(93, 2, 2);
     border-radius: 15px;
     margin: auto;
-    margin-top: 50px;
+    /* margin-top: 50px; */
 }
 
-.userDiv:nth-child(odd){
+.userDiv:nth-child(even){
     display: flex;
     background-color: white;
     border-radius: 5px;
@@ -42,7 +52,7 @@ background-size: cover;
     padding: 5px;
     border-left: 2px solid rgb(151, 15, 15) ;
 }
-.userDiv:nth-child(even){
+.userDiv:nth-child(odd){
     text-align: right;
     display: flex;
     background-color: whitesmoke;
